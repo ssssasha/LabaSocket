@@ -67,7 +67,7 @@ namespace LabaServer
 
                     // записуємо  в журнал(файл) повідомлення клієнта.
                     using (FileStream fileStream =
-                        new FileStream(@"/proga/LabaServer/журнал.txt", // шлях к файлу, в який проводиться запис
+                        new FileStream(@"/proga/LabaServer/журнал.txt", // шлях до файлу, в який проводиться запис
                             FileMode.OpenOrCreate))
                     {
                         using (StreamWriter sw = new StreamWriter(fileStream))
@@ -105,7 +105,7 @@ namespace LabaServer
                         handler.Send(data);
                     }
 
-                    // закраємо сокет
+                    // закриваємо сокет
                     handler.Shutdown(SocketShutdown.Both);
                     handler.Close();
                 }
