@@ -1,0 +1,10 @@
+Пн 09.11.20 10:55:45: Request : "Hello" from [127.0.0.1, 56043] client.
+Пн 09.11.20 10:55:56: Request : "laba2" from [127.0.0.1, 56044] client.
+Пн 09.11.20 10:56:06: Request : "Sockets" from [127.0.0.1, 56072] client.
+Пн 09.11.20 10:56:45: Request : "sockets allow comunnication between two " from [127.0.0.1, 56073] client.
+Пн 09.11.20 10:57:23: Request : "it is a way to talk to other computers" from [127.0.0.1, 56173] client.
+Пн 09.11.20 10:57:35: Request : "goodbye" from [127.0.0.1, 56207] client.
+
+Пн 09.11.20 11:06:38: Request : "skdksfn" from [127.0.0.1, 57099] client.
+Пн 09.11.20 11:06:49: Request : "dd ffff fkldnfkdnfc" from [127.0.0.1, 57103] client.
+Пн 09.11.20 11:07:01: Request : "fff efgg wsfefef gggggdfffw" from [127.0.0.1, 57104] client.
