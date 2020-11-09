@@ -26,21 +26,21 @@ namespace LabaServer
 
     class Program
     {
-        static int port = 1029; // порт для приема входящих запросов
+        static int port = 1029; // порт для прийому вхідних запитів
 
         static void Main(string[] args)
         {
-            // получаем адреса для запуска сокета
+            // отримуємо адреса для запуска сокета
             IPEndPoint ipPoint = new IPEndPoint(IPAddress.Parse("127.0.0.1"), port);
 
-            // создаем сокет
+            // створюємо сокет
             Socket listenSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             try
             {
-                // связываем сокет с локальной точкой, по которой будем принимать данные
+                // зв'язуємо сокет з локальною точкою, по якій будемо приймати  данні
                 listenSocket.Bind(ipPoint);
 
-                // начинаем прослушивание
+                // починаємо прослуховування
                 listenSocket.Listen(10);
 
                 Console.WriteLine("The server is running. Wait for connections...");
@@ -48,11 +48,11 @@ namespace LabaServer
                 while (true)
                 {
                     Socket handler = listenSocket.Accept();
-                    // получаем сообщение
+                    // отримуємо повідомлення
                     StringBuilder builder = new StringBuilder();
                     StringBuilder builderForFile = new StringBuilder();
-                    int bytes = 0; // количество полученных байтов
-                    byte[] data = new byte[256]; // буфер для получаемых данных
+                    int bytes = 0; // кількість отриманих байтів
+                    byte[] data = new byte[256]; // буфер для отримуваних данних
 
                     do
                     {
@@ -65,9 +65,9 @@ namespace LabaServer
                     } while (handler.Available > 0);
 
 
-                    // записываем в журнал(файл) сообщения клиента.
+                    // записуємо  в журнал(файл) повідомлення клієнта.
                     using (FileStream fileStream =
-                        new FileStream(@"/proga/LabaServer/журнал.txt", // путь к файлу, в который производится запись
+                        new FileStream(@"/proga/LabaServer/журнал.txt", // шлях к файлу, в який проводиться запис
                             FileMode.OpenOrCreate))
                     {
                         using (StreamWriter sw = new StreamWriter(fileStream))
@@ -95,7 +95,7 @@ namespace LabaServer
                         }
                     }
 
-                    // отправляем ответ
+                    // відправляємо відповідь
                     Console.Write("Enter the answer: ");
                     string message = Console.ReadLine();
                     IEnumerable<string> s = message.Split(20);
@@ -105,7 +105,7 @@ namespace LabaServer
                         handler.Send(data);
                     }
 
-                    // закрываем сокет
+                    // закраємо сокет
                     handler.Shutdown(SocketShutdown.Both);
                     handler.Close();
                 }
